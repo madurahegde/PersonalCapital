@@ -1,12 +1,12 @@
 package com.example.aws.elasticsearch.demo.controller;
 
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import com.example.aws.elasticsearch.demo.document.PersonalCapitalDoc;
 import com.example.aws.elasticsearch.demo.service.PCService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 @RestController()
 public class PCController {
@@ -21,9 +21,8 @@ public class PCController {
     return "Success";
   }
 
-  @GetMapping
+  @GetMapping(value = "/")
   public List<PersonalCapitalDoc> findAll() throws Exception {
-
     return service.findAll();
   }
 
